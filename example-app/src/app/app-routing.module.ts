@@ -17,11 +17,11 @@ export const routes: Routes = [
     pathMatch: 'prefix',
     loadChildren: './modules/resource-list#ResourceListModule'
   },
-  // {
-  //   path: '**',
-  //   pathMatch: 'full',
-  //   redirectTo: 'start'
-  // }
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'start'
+  }
 ];
 
 export const APP_ROUTING: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });

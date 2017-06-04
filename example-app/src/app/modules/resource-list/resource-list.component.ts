@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResourceListRetrieveService } from './resource-list-retrieve.service';
 
 @Component({
   selector: 'app-resource-list',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResourceListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: ResourceListRetrieveService) { 
+    this.service = service;
+  }
 
   ngOnInit() {
+    this.service.getResourceListData().subscribe(data => console.log(data), error => console.log(error));
   }
 
 }
