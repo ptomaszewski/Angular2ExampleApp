@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdSnackBarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { APP_ROUTING } from './app-routing.module';
 
 import 'rxjs/Rx';
-
-import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,12 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     APP_ROUTING,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    MdSnackBarModule
+  ],
+  exports: [
+    MdSnackBarModule
   ],
   providers: [
   ],
