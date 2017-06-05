@@ -1,3 +1,5 @@
-<p>
-  resource-list works!
-</p>
+<div *ngIf="resources">
+  <p *ngFor="let resource of resources">
+    {{resource.id}} {{resource.name}} {{resource.pantone_value}} {{resource.year}}
+  </p>
+</div>

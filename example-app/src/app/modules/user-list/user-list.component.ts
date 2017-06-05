@@ -8,13 +8,16 @@ import { MdSnackBar } from '@angular/material';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-
+  private users;
   constructor(private service: UserListRetrieveService, public snackBar: MdSnackBar) {
     this.service = service;
   }
 
   ngOnInit() {
-    this.service.getUserListData().subscribe(data => console.log(data), error => {
+    this.service.getUserListData().subscribe(data => {
+      this.users = JSON.parse(data._body).data;
+      console.log(this.users);
+    }, error => {
       console.log(error);
       this.snackBar.open('Error: (' + error.status + ') ' + error.statusText, '', {
         duration: 8000,
