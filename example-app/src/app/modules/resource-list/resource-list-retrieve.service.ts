@@ -10,6 +10,6 @@ export class ResourceListRetrieveService {
   }
 
   public getResourceListData(): Observable<any> {
-    return this.http.get('https://reqres.in/api/unknown');
+    return this.http.get('https://jsonplaceholder.typicode.com/posts');
   }
 }

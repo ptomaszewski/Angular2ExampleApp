@@ -1,6 +1,6 @@
-<p *ngIf="start">
-  {{start.id}} 
-  {{start.first_name}}
-  {{start.last_name}}
-  {{start.avatar}}
-</p>
+<div *ngIf="start">
+  <p *ngFor="let item of start">
+    {{item.id}} {{item.title}} {{item.completed}}
+
+  </p>
+</div>

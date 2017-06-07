@@ -15,7 +15,7 @@ export class ResourceListComponent implements OnInit {
 
   ngOnInit() {
     this.service.getResourceListData().subscribe(data => {
-      this.resources = JSON.parse(data._body).data;
+      this.resources = JSON.parse(data._body);
       console.log(this.resources);
     }, error => {
       console.log(error);

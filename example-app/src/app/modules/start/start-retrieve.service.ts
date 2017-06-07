@@ -10,7 +10,7 @@ export class StartRetrieveService {
   }
 
   public getStartData(): Observable<any> {
-    return this.http.get('https://reqres.in/api/users/2');
+    return this.http.get('https://jsonplaceholder.typicode.com/todos');
   }
 
 }

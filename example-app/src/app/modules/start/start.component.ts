@@ -9,13 +9,14 @@ import { MdSnackBar } from '@angular/material';
 })
 export class StartComponent implements OnInit {
   public start;
-  constructor(private service: StartRetrieveService, public snackBar: MdSnackBar) { 
+  constructor(private service: StartRetrieveService, public snackBar: MdSnackBar) {
     this.service = service;
   }
 
   ngOnInit() {
-    this.service.getStartData().subscribe( data => { 
-      this.start = JSON.parse(data._body).data;
+    this.service.getStartData().subscribe(data => {
+      this.start = JSON.parse(data._body);
+      console.log(this.start);
     }, error => {
       console.log(error);
       this.snackBar.open('Error: (' + error.status + ') ' + error.statusText, '', {
