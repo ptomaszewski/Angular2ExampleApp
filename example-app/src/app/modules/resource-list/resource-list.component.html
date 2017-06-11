@@ -1,4 +1,5 @@
 <div *ngIf="resources">
+  <input [(ngModel)]="itemsCount" (keyup)="onKey(itemsCount)">
   <p *ngFor="let resource of resources">
     {{resource.id}} {{resource.title}} {{resource.body}}
   </p>
