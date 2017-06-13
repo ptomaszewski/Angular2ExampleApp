@@ -4,15 +4,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule }   from '@angular/forms';
 
 import { ResourceListComponent } from './resource-list.component';
-import { RESOURCE_LIST_ROUTING } from './resource-list-routing.module';
+import { TableComponent } from './components/table/table.component';
+import { resourceListRouting } from './resource-list.routing';
 @NgModule({
   imports: [
     CommonModule,
-    RESOURCE_LIST_ROUTING,
-    FormsModule
+    FormsModule,
+    resourceListRouting
   ],
   declarations: [
-    ResourceListComponent
+    ResourceListComponent,
+    TableComponent
   ],
   providers: [
     ResourceListRetrieveService
