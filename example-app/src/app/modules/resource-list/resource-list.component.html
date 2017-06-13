@@ -1,8 +1,13 @@
-<div *ngIf="resources">
-  <input [(ngModel)]="itemsCount" (keyup)="onKey(itemsCount)">
-  <p *ngFor="let resource of resources">
-    {{resource.id}} {{resource.title}} {{resource.body}}
-  </p>
-</div>
+<ul class="menu">
+    <li>
+        <a [routerLink]="['/resource-list/1']" routerLinkActive="active"><i class="mdi mdi-thumb-up"></i>1</a>
+    </li>
+    <li>
+        <a [routerLink]="['/resource-list/2']" routerLinkActive="active"><i class="mdi mdi-star"></i>2</a>
+    </li>
+    <li>
+        <a [routerLink]="['/resource-list/3']" routerLinkActive="active"><i class="mdi mdi-send"></i>3</a>
+    </li>
+</ul>
 
 <router-outlet></router-outlet>

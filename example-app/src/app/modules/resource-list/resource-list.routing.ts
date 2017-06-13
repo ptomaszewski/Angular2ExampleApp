@@ -1,5 +1,3 @@
-console.log('routes');
-
 import { Routes, RouterModule } from '@angular/router';
 import { TableComponent } from './components/table/table.component';
 import { ResourceListComponent } from './resource-list.component';
@@ -12,7 +10,7 @@ const resourceListRoutes: Routes = [
         children: [
             {
                 path: '',
-                component: TableComponent
+                redirectTo: '1'
             },
             {
                 path: ':page',
