@@ -12,6 +12,7 @@ declare let window;
 })
 export class TableComponent implements OnInit, OnDestroy {
   private resources;
+  private dataTable;
   private page;
   private sub;
   private parentRouteId: number;
@@ -22,15 +23,18 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   public createTable() {
-
+    let itemsCount = this.itemsCount || 20;
+    let offset = itemsCount * this.page;
+    this.dataTable = this.resources.slice(offset - itemsCount, offset);
   }
 
   onKey(value) {
     if (window.storage) {
       localStorage.setItem('itemsCount', value);
-    } else {
-      this.itemsCount = value;
     }
+    this.itemsCount = value;
+    this.createTable();
+
   }
 
   ngOnInit() {
@@ -47,9 +51,7 @@ export class TableComponent implements OnInit, OnDestroy {
       });
     });
     this.sub = this.route.params.subscribe(params => {
-      this.page = +params['page']; // (+) converts string 'id' to a number
-      console.log(params['page'])
-
+      this.page = +params['page'];
     });
   }
 

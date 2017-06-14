@@ -1,6 +1,6 @@
-<div *ngIf="resources">
+<div *ngIf="dataTable">
   <input [(ngModel)]="itemsCount" (keyup)="onKey(itemsCount)">
-  <p *ngFor="let resource of resources">
-    {{resource.id}} {{resource.title}} {{resource.body}}
+  <p *ngFor="let item of dataTable">
+    {{item.id}} {{item.title}} {{item.body}}
   </p>
 </div>
