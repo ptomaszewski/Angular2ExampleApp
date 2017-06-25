@@ -3,6 +3,7 @@ import { ResourceListRetrieveService } from '../../resource-list-retrieve.servic
 import { MdSnackBar } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderByPipe } from '../../pipes/order-by.pipe';
+import { FilterKeywordsPipe } from '../../pipes/filter-keyword.pipe';
 
 declare let window;
 
@@ -21,19 +22,29 @@ export class TableComponent implements OnInit, OnDestroy {
     column: "id",
     descending: false
   };
+  private filterKeyword: string;
+  private filterTimeout: any;
   private parentRouteId: number;
   private tableItemsLength: number;
 
-  constructor(private service: ResourceListRetrieveService, public snackBar: MdSnackBar, private router: Router, private route: ActivatedRoute, private orderByPipe: OrderByPipe) {
+  constructor(
+    private service: ResourceListRetrieveService,
+    public snackBar: MdSnackBar,
+    private router: Router,
+    private route: ActivatedRoute,
+    private orderByPipe: OrderByPipe,
+    private filterKeywordPipe: FilterKeywordsPipe
+  ) {
     this.service = service;
   }
 
   public createTable() {
-    this.tableItemsLength = this.tableItemsLength > 0 ? this.tableItemsLength: 20;
+    this.tableItemsLength = this.tableItemsLength > 0 ? this.tableItemsLength : 20;
     let tableEnd = this.tableItemsLength * this.activePageNumber;
     let tableOffset = tableEnd - this.tableItemsLength;
-    let pageListLength = Math.ceil(this.resources.length / this.tableItemsLength);
-    this.currentTable = this.orderByPipe.transform(this.resources, this.sort.column).slice(tableOffset, tableEnd);
+    let filteredTable = this.filterKeywordPipe.transform(this.resources, this.filterKeyword);
+    let pageListLength = Math.ceil(filteredTable.length / this.tableItemsLength);
+    this.currentTable = this.orderByPipe.transform(filteredTable, this.sort.column).slice(tableOffset, tableEnd);
 
     this.createPageList(pageListLength);
   }
@@ -71,7 +82,7 @@ export class TableComponent implements OnInit, OnDestroy {
     this.sort.column = this.sort.descending ? '-' + this.sort.column : this.sort.column;
   }
 
-  onKey(value) {
+  changeTableItemsLength(value) {
     if (window.storage) {
       localStorage.setItem('tableItemsLength', value);
     }
@@ -80,6 +91,16 @@ export class TableComponent implements OnInit, OnDestroy {
 
     this.createTable();
 
+  }
+
+  changeFilterKeyword(text: string) {
+    clearTimeout(this.filterTimeout);
+    this.filterTimeout = setTimeout(() => {
+      this.filterKeyword = text;
+      
+      this.createTable();
+
+    }, 600);
   }
 
   ngOnInit() {

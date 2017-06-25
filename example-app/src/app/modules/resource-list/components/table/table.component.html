@@ -1,5 +1,6 @@
 <div *ngIf="currentTable">
-  <input [(ngModel)]="tableItemsLength" (keyup)="onKey(tableItemsLength)">
+  <input [(ngModel)]="tableItemsLength" (keyup)="changeTableItemsLength(tableItemsLength)">
+  <input [(ngModel)]="filterKeyword" (keyup)="changeFilterKeyword(filterKeyword)">
   <table>
     <thead>
       <tr>

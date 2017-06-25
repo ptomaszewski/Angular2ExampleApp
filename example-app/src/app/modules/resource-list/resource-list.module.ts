@@ -7,6 +7,7 @@ import { ResourceListComponent } from './resource-list.component';
 import { TableComponent } from './components/table/table.component';
 import { resourceListRouting } from './resource-list.routing';
 import { OrderByPipe } from './pipes/order-by.pipe';
+import { FilterKeywordsPipe } from './pipes/filter-keyword.pipe';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { OrderByPipe } from './pipes/order-by.pipe';
   ],
   providers: [
     ResourceListRetrieveService,
-    OrderByPipe
+    OrderByPipe,
+    FilterKeywordsPipe
   ]
 })
 export class ResourceListModule { }

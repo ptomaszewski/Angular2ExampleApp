@@ -4,22 +4,22 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class OrderByPipe implements PipeTransform {
     inputOrdered: string[] = [];
 
-    transform(input: any, config: string): any {
+    transform(input: any, sortingColumnName: string): any {
         let changeOrder = 1;
-        if (config.slice(0, 1) === '-') {
-            config = config.slice(1, config.length);
+        if (sortingColumnName.slice(0, 1) === '-') {
+            sortingColumnName = sortingColumnName.slice(1, sortingColumnName.length);
             changeOrder = -1;
         }
 
         function compare(a, b) {
             let genreA;
             let genreB;
-            if (isFinite(a[config]) && isFinite(b[config])) {
-                genreA = parseInt(a[config]);
-                genreB = parseInt(b[config]);
+            if (isFinite(a[sortingColumnName]) && isFinite(b[sortingColumnName])) {
+                genreA = parseInt(a[sortingColumnName]);
+                genreB = parseInt(b[sortingColumnName]);
             } else {
-                genreA = a[config].toUpperCase();
-                genreB = b[config].toUpperCase();
+                genreA = a[sortingColumnName].toUpperCase();
+                genreB = b[sortingColumnName].toUpperCase();
             }
 
             let comparison = 0;
