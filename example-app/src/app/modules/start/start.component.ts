@@ -16,7 +16,6 @@ export class StartComponent implements OnInit {
   ngOnInit() {
     this.service.getStartData().subscribe(data => {
       this.start = JSON.parse(data._body);
-      console.log(this.start);
     }, error => {
       console.log(error);
       this.snackBar.open('Error: (' + error.status + ') ' + error.statusText, '', {

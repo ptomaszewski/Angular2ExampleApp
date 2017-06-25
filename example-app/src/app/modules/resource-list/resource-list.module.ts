@@ -6,6 +6,8 @@ import { FormsModule }   from '@angular/forms';
 import { ResourceListComponent } from './resource-list.component';
 import { TableComponent } from './components/table/table.component';
 import { resourceListRouting } from './resource-list.routing';
+import { OrderByPipe } from './pipes/order-by.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,9 +17,11 @@ import { resourceListRouting } from './resource-list.routing';
   declarations: [
     ResourceListComponent,
     TableComponent
+    
   ],
   providers: [
-    ResourceListRetrieveService
+    ResourceListRetrieveService,
+    OrderByPipe
   ]
 })
 export class ResourceListModule { }

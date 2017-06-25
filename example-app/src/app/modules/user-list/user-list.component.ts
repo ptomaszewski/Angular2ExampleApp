@@ -16,7 +16,6 @@ export class UserListComponent implements OnInit {
   ngOnInit() {
     this.service.getUserListData().subscribe(data => {
       this.users = JSON.parse(data._body);
-      console.log(this.users);
     }, error => {
       console.log(error);
       this.snackBar.open('Error: (' + error.status + ') ' + error.statusText, '', {
