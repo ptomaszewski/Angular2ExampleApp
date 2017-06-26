@@ -1,0 +1,24 @@
+.users {
+    max-width: 250px;
+    margin: auto
+}
+
+.user {
+    margin-bottom: 15px;
+    padding-left: 40px;
+
+    * {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    &_icon {
+        position: absolute;
+        left: 12px;
+        top: 22px;
+    }
+
+    &_name {
+        font-size: 18px;
+    }
+}

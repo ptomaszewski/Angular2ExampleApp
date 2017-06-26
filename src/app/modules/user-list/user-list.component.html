@@ -1,5 +1,13 @@
-<div *ngIf="users">
-  <p *ngFor="let user of users">
-    {{user.id}} {{user.name}} {{user.address.city}} {{user.address.street}} {{user.address.suite}} {{user.address.zipcode}}
+<div *ngIf="users" class="users">
+  <md-card *ngFor="let user of users" class="user">
+    <md-card-content>
+      <img src="../../assets/images/ic_account_box_black_24px.svg" alt="user icon" class="user_icon">
+      <p class="user_name">{{user.name}}</p>
+      <p>{{user.address.street}}</p>
+      <p>{{user.address.city + ', ' + user.address.zipcode}}</p>
+    </md-card-content>
+  </md-card>
+  <p>
+
   </p>
 </div>

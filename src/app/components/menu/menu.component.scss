@@ -1,43 +1,31 @@
-.example-sidenav-fab-container {
-  width: 500px;
-  height: 300px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-.example-sidenav-fab-container md-sidenav {
-  max-width: 200px;
-}
-
-.example-sidenav-fab-container .mat-sidenav-content,
-.example-sidenav-fab-container md-sidenav {
+.menu {
+  align-items: center;
   display: flex;
-  overflow: visible;
-}
+  background-color: #3f51b5;
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  justify-content: center;
+  padding: 12px 18px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+  
+  &_item {
+    border-radius: 2px;
+    color: rgba(255, 255, 255, 0.87);
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 8px 16px;
 
-.example-scrolling-content {
-  overflow: auto;
-}
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
 
-.example-fab {
-  position: absolute;
-  right: 20px;
-  bottom: 10px;
-}
-
-.mat-sidenav {
-  flex-direction: column!important;
-  background-color: rgba(0, 0, 0, 0.0588);
-}
-
-.menu_item {
-  color: red;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  padding: 10px 15px;
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.08);
+    &.active {
+      text-decoration: underline;
+    }
   }
 }
-

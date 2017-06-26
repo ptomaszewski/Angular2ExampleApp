@@ -1,0 +1,25 @@
+.mat-list {
+    padding-top: 0;
+}
+
+.mat-card {
+    max-width: 600px;
+    margin: auto;
+    padding: 0;
+}
+
+.head {
+    color: rgba(0,0,0,.54);
+    background-color: rgba(0,0,0,.03);
+    font-size: 18px;
+    padding: 18px 26px;
+}
+
+.title {
+    padding: 0 10px;
+
+    &.done {
+        color: rgba(0,0,0,.6);
+        text-decoration: line-through;
+    }
+}
