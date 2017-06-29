@@ -1,3 +1,14 @@
+.empty {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 60px 0 20px;
+    text-align: center;
+
+    .text {
+        font-size: 18px;
+    }
+}
+
 .head {
     align-items: center;
     display: flex;
@@ -29,7 +40,7 @@
 .pagination {
     list-style-type: none;
     padding-left: 8px;
-    
+
     .item {
         display: inline-block;
 

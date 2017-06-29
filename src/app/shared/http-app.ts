@@ -24,7 +24,6 @@ export class HttpApp extends Http {
     options.withCredentials = true;
     return super.get(url, options)
       .catch((err) => {
-        console.log(err);
         return Observable.throw(err);
       });
   }

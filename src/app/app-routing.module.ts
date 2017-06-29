@@ -1,6 +1,8 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TableComponent } from './modules/resource-list/components/table/table.component';
+import { RequestErrorComponent } from './components/request-error/request-error.component';
+
 
 export const routes: Routes = [
   {
@@ -18,11 +20,16 @@ export const routes: Routes = [
     pathMatch: 'prefix',
     loadChildren: './modules/resource-list#ResourceListModule'
   },
-  // {
-  //   path: '**',
-  //   pathMatch: 'full',
-  //   redirectTo: 'start'
-  // }
+  {
+    path: 'request-error',
+    pathMatch: 'prefix',
+    component: RequestErrorComponent
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'start'
+  }
 ];
 
 export const APP_ROUTING: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });

@@ -17,7 +17,6 @@ export class StartComponent implements OnInit {
     this.service.getStartData().subscribe(data => {
       this.start = JSON.parse(data._body);
     }, error => {
-      console.log(error);
       this.snackBar.open('Error: (' + error.status + ') ' + error.statusText, '', {
         duration: 8000,
         announcementMessage: 'off'
