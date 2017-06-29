@@ -1,13 +1,19 @@
 <div *ngIf="start">
   <md-card>
-    <md-card-header class="head">TODO List</md-card-header>
+    <md-card-header class="head">To Do List</md-card-header>
     <md-card-content>
 
       <md-list>
         <div></div>
         <md-list-item *ngFor="let item of start">
-          <img *ngIf="item.completed" class="mdi mdi-check" src="../../assets/images/ic_check_black_18px.svg">
-          <img *ngIf="!item.completed" class="mdi mdi-check" src="../../assets/images/ic_remove_black_18px.svg">
+          <svg *ngIf="item.completed" fill="#64d71e" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+          </svg>
+          <svg *ngIf="!item.completed" fill="#414141" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 13H5v-2h14v2z" />
+            <path d="M0 0h24v24H0z" fill="none" />
+          </svg>
           <span class="title" [ngClass]="{'done':item.completed}">{{item.title}}</span>
         </md-list-item>
       </md-list>

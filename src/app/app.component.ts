@@ -6,7 +6,7 @@ declare let window;
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  encapsulation: ViewEncapsulation.Native
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
   title = 'app';

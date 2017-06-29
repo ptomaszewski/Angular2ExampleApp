@@ -10,7 +10,7 @@ declare let window;
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit, OnDestroy {
   private resources;
@@ -19,9 +19,23 @@ export class TableComponent implements OnInit, OnDestroy {
   private tablePageList: Object[] = [];
   private sub;
   private sort: any = {
-    column: "id",
+    column: 'id',
     descending: false
   };
+  private tableHeadings: any[] = [
+    {
+      name: 'id',
+      sorting: 'none'
+    },
+    {
+      name: 'title',
+      sorting: 'none'
+    },
+    {
+      name: 'body',
+      sorting: 'none'
+    },
+  ];
   private filterKeyword: string;
   private filterTimeout: any;
   private parentRouteId: number;
@@ -67,12 +81,18 @@ export class TableComponent implements OnInit, OnDestroy {
     }
   }
 
-  public changeSorting(columnName): void {
-    if (this.sort.column == columnName) {
+  public changeSorting(column): void {
+    for (const el of this.tableHeadings) {
+      el.sorting = 'none';
+    }
+
+    if (this.sort.column === column.name) {
       this.sort.descending = !this.sort.descending;
+      column.sorting = 'descending';
     } else {
-      this.sort.column = columnName;
+      this.sort.column = column.name;
       this.sort.descending = false;
+      column.sorting = 'ascending'
     }
     this.convertSorting();
     this.createTable();
@@ -97,7 +117,7 @@ export class TableComponent implements OnInit, OnDestroy {
     clearTimeout(this.filterTimeout);
     this.filterTimeout = setTimeout(() => {
       this.filterKeyword = text;
-      
+
       this.createTable();
 
     }, 600);
