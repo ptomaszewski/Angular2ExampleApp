@@ -1,5 +1,8 @@
-.mat-list {
-    padding-top: 0;
+.head {
+    background-color: rgba(0,0,0,.03);
+    color: rgba(0,0,0,.54);
+    font-size: 18px;
+    padding: 18px 26px;
 }
 
 .mat-card {
@@ -8,11 +11,8 @@
     padding: 0;
 }
 
-.head {
-    color: rgba(0,0,0,.54);
-    background-color: rgba(0,0,0,.03);
-    font-size: 18px;
-    padding: 18px 26px;
+.mat-list {
+    padding-top: 0;
 }
 
 .title {

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { StartRetrieveService } from './start-retrieve.service';
-import { MdSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-start',
@@ -9,19 +8,14 @@ import { MdSnackBar } from '@angular/material';
 })
 export class StartComponent implements OnInit {
   public start;
-  constructor(private service: StartRetrieveService, public snackBar: MdSnackBar) {
+  constructor(private service: StartRetrieveService) {
     this.service = service;
   }
 
   ngOnInit() {
     this.service.getStartData().subscribe(data => {
       this.start = JSON.parse(data._body);
-    }, error => {
-      this.snackBar.open('Error: (' + error.status + ') ' + error.statusText, '', {
-        duration: 8000,
-        announcementMessage: 'off'
-      });
-    })
+    });
   }
 
 }

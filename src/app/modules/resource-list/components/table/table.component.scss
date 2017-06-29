@@ -20,8 +20,8 @@
         padding-bottom: 40px;
 
         .filter {
-            width: 300px;
             margin-bottom: 14px;
+            width: 300px;            
         }
     }
 
@@ -82,6 +82,11 @@
             padding: 16px 12px;
             text-align: left;
         }
+        
+        .body {
+            min-width: 500px;
+            padding-right: 24px;            
+        }
 
         .id {
             min-width: 40px;
@@ -90,11 +95,6 @@
 
         .title {
             min-width: 270px;
-        }
-
-        .body {
-            min-width: 500px;
-            padding-right: 24px;            
         }
     }
 }

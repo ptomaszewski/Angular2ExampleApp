@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { WindowRefService } from './shared/window.service';
 
 declare let window;
 
@@ -10,9 +11,12 @@ declare let window;
 })
 export class AppComponent implements OnInit {
   title = 'app';
-
+  private _window;
+  constructor(private windowRef: WindowRefService) {
+    this._window = windowRef.nativeWindow;
+  }
   ngOnInit() {
-    window.storage;
+    this._window.storage;
     let fail;
     let uid;
     try {
@@ -20,7 +24,7 @@ export class AppComponent implements OnInit {
       (window.storage = window.localStorage).setItem(uid, uid);
       fail = window.storage.getItem(uid) != uid;
       window.storage.removeItem(uid);
-      fail && (window.storage = false);
+      fail && (this._window.storage = false);
     } catch (exception) { }
   }
 }

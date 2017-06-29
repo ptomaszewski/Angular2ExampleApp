@@ -5,7 +5,6 @@
       <md-input-container class="filter">
         <input class="search" mdInput type="text" placeholder="Szukaj" [(ngModel)]="filterKeyword" (keyup)="changeFilterKeyword(filterKeyword)">
       </md-input-container>
-
       <md-select class="count" [(ngModel)]="tableItemsLength" (change)="changeTableItemsLength(tableItemsLength)" name="Items">
         <md-option [value]="5">5</md-option>
         <md-option [value]="10">10</md-option>
@@ -23,17 +22,16 @@
         </svg>
         <p class="text">Brak danych do wyświetlenia</p>
       </div>
-
       <table class="content" *ngIf="currentTable.length > 0">
         <thead>
           <tr>
             <th *ngFor="let head of tableHeadings" (click)="changeSorting(head)" [class]="head.name">
               <span class="text">{{ head.name | capitalize }}</span>
-              <svg *ngIf="head.sorting === 'descending'" fill="#5a5d5a" height="14" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
+              <svg *ngIf="head.sorting === 'ascending'" fill="#5a5d5a" height="14" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 0h24v24H0V0z" fill="none" />
                 <path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z" />
               </svg>
-              <svg *ngIf="head.sorting === 'ascending'" fill="#5a5d5a" height="14" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
+              <svg *ngIf="head.sorting === 'descending'" fill="#5a5d5a" height="14" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 0h24v24H0V0z" fill="none" />
                 <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z" />
               </svg>
@@ -57,13 +55,10 @@
     </md-card-content>
     <md-card-actions>
       <ul class="pagination">
-        <!--<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>-->
         <li *ngFor="let page of tablePageList" class="item">
           <a [routerLink]="['/resource-list/', page.index]" routerLinkActive="active" class="link">{{page.index}}</a>
         </li>
-        <!--<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>-->
       </ul>
     </md-card-actions>
   </md-card>
-
 </div>

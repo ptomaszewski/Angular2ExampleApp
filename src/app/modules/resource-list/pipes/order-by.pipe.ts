@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class OrderByPipe implements PipeTransform {
     inputOrdered: string[] = [];
 
-    transform(input: any, sortingColumnName: string): any {
+    transform(input: any[], sortingColumnName: string): any[] {
         let changeOrder = 1;
         if (sortingColumnName.slice(0, 1) === '-') {
             sortingColumnName = sortingColumnName.slice(1, sortingColumnName.length);
@@ -15,8 +15,8 @@ export class OrderByPipe implements PipeTransform {
             let genreA;
             let genreB;
             if (isFinite(a[sortingColumnName]) && isFinite(b[sortingColumnName])) {
-                genreA = parseInt(a[sortingColumnName]);
-                genreB = parseInt(b[sortingColumnName]);
+                genreA = parseInt(a[sortingColumnName], 10);
+                genreB = parseInt(b[sortingColumnName], 10);
             } else {
                 genreA = a[sortingColumnName].toUpperCase();
                 genreB = b[sortingColumnName].toUpperCase();
