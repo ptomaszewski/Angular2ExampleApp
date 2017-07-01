@@ -11,7 +11,7 @@ import { RequestErrorComponent } from './components/request-error/request-error.
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
 
-import 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 import { HttpApp } from './shared/http-app';
 
 export function httpAppFunc(backend: XHRBackend, options: RequestOptions, snackBar: MdSnackBar) {
